@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="./lib/Nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/common.css">
-    <title>首页</title>
+    <title>二级分类</title>
 </head>
 
 <body>
@@ -27,9 +27,9 @@
                 <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
                 <li>
                     <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-                    <div class="child" >
+                    <div class="child">
                         <a href="first.html">一级分类</a>
-                        <a href="second.html"  class="current">二级分类</a>
+                        <a href="second.html" class="current">二级分类</a>
                     </div>
                 </li>
                 <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
@@ -44,37 +44,156 @@
         <div class="container-fluid">
             <ol class="breadcrumb mt-20">
                 <li><a href="#">管理系统</a></li>
-              
-                <li class="active">首页</li>
+                <li  class="active">分类管理</li>
+                <li class="active">二级分类</li>
             </ol>
+
+            <div class="center">
+                <button class="btn btn-default btnsecond">添加分类</button>
+                <table class="table table-bordered table-hover mt-20">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>一级分类名称</th>
+                            <th>二级分类名称</th>
+                            <th>二级分类LOGO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                               		
+                            <td> 1</td>
+                            <td>女士馆</td>
+                            <td>阿萨德2</td>
+                            <td>
+                                <img height="50px" src="./images/none.png" alt="">
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+
+                <!-- 分页 -->
+                <div class="page pull-right">
+                    <ul id="pagination"></ul>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- 模态框 -->
+    <!-- 退出模态框 -->
     <div class="modal fade" id="modellogout" tabindex="-1">
-            <div class="modal-dialog modal-sm" >
-              <div class="modal-content">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</span></button>
-                  <h4 class="modal-title">温馨提示</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</span></button>
+                    <h4 class="modal-title">温馨提示</h4>
                 </div>
                 <div class="modal-body">
-                  <p><i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出后台管理系统吗？</span></p>
+                    <p><i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出后台管理系统吗？</span></p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                  <button type="button" class="btn btn-primary">退出</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">退出</button>
                 </div>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <!-- 添加分类 -->
+
+
+    <div class="modal fade" tabindex="-1" id="add">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="form">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="modal-title">添加分类</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <!-- 按钮 -->
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                    <span id="dropdownText">请选择一级分类</span>
+                                    <span class="caret"></span> <!-- 小箭头 -->
+                                </button>
+                                <!-- 切换的下拉菜单 -->
+                                <ul class="dropdown-menu">
+                                    <!-- 挖个坑 -->
+                                </ul>
+                            </div>
+
+                            <!-- 准备一个隐藏域, 专门用于提交数据 -->
+                            <input type="hidden" name="categoryId">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="btn btn-default" for="fileupload">选择图片</label>
+                            <!-- 配置必要的属性, input, type类型 file
+                             1. name 后台用于接收图片文件的
+                             2. data-url 配置插件将来上传文件时, 请求的后台接口地址
+                             3. post 只要是文件上传, 必然是 post 请求, 默认就是 post
+                        -->
+                            <input data-url="/category/addSecondCategoryPic" name="pic1" type="file" id="fileupload"
+                                style="display: none;">
+                        </div>
+
+                        <div class="form-group" id="imgBox">
+                            <img style="height: 100px;" src="./images/none.png" alt="">
+                            <input type="hidden" name="brandLogo">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">添加</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/Nprogress/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/comment.js"></script>
     <script src="./js/login.js"></script>
     <script src="./js/isLogin.js"></script>
+    <script src="./js/second.js"></script>
+
+    <!-- 表格的模板引擎 -->
+    <script type="text/html" id="second">
+        {{each rows v i}}
+        <tr>
+            <td>{{i+1 + (page-1)*size}}</td>
+            <td>{{v.categoryName}}</td>
+            <td>{{v.brandName}}</td>
+            <td>
+                <img height="50px" src="{{v.brandLogo}}" alt="">
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <!-- 下拉菜单的模板引擎 -->
+    <script type="text/html" id="two">
+        {{each rows v i}}
+        <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a>
+        {{/each}}
+    </script>
 </body>
 
 </html>

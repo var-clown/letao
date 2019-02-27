@@ -91,7 +91,7 @@ $(function () {
         // resetForm(false):只重置状态
         // resetForm(true):不仅重置状态,也重置内容
     $("[type=reset]").on("click",function(){
-        $("#form-login").data("bootstrapValidator").resetForm()
+        $("#form-login").data("bootstrapValidator").resetForm(true)
     })
 
 })
