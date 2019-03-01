@@ -86,3 +86,62 @@ html,body{
     height: 100%;
     position: relative;
 }
+
+
+/* 搜索列表的通用样式 */
+.main .search{
+    padding: 10px;
+}
+.main .search .input-search{
+    height: 34px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid #007AFF;
+    font-size: 12px;
+}
+.main .search .btn-search{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+
+
+/* 搜索产品的公共部分 */
+.main .main-product{
+    padding: 10px;
+}
+.main .main-product ul li{
+    float: left;
+    width: 48%;
+    padding: 5px 0px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.main .main-product ul li:nth-child(2n-1){
+    margin-right: 4%;
+}
+.main .main-product ul li a{
+    display: block;
+    padding: 5px ;
+    
+}
+.main .main-product ul li img{
+    display: block;
+    width: 130px;
+    height: 130px;
+    /* width: 100%; */
+    margin: 0 auto;
+}
+.main .main-product ul li p{
+    height: 40px;
+    /* line-height: 30px; */
+}
+.main .main-product ul li a .oldprice{
+    text-decoration: line-through;
+}
+.main .main-product ul li a .price{
+    color: red;
+    
+}

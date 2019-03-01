@@ -1,0 +1,46 @@
+.main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* .main .search{
+    padding: 10px;
+}
+.main .search .input-search{
+    height: 34px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid #007AFF;
+    font-size: 12px;
+}
+.main .search .btn-search{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 0 5px 5px 0;
+} */
+.main .history{
+    padding: 10px;
+}
+.main .history .title{
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    font-size: 12px
+}
+.main .history .content ul{
+    border: 1px dashed red;
+}
+.main .history .content ul li{
+    font-size: 12px;
+    height:30px;
+    line-height: 30px;
+    border-bottom: 1px dashed red;
+    padding: 0 10px;
+}
+.main .history .content ul li:last-child{
+    border-bottom:none;
+}
+.main .history .content ul li i{
+    line-height: 30px;
+}

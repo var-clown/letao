@@ -1,0 +1,35 @@
+.sort{
+    height: 30px;
+    line-height: 30px;
+    background: #EEEEEE;
+
+}
+.sort a{
+    float: left;
+    width: 25%;
+    height: 100%;
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+}
+.sort a.current{
+    color: orange;
+}
+.main-product .loading{
+    width: 60px;
+    height: 60px;
+    margin: 100px auto;
+    border: 3px solid skyblue;
+    animation: rotal 1s infinite;
+}
+
+@keyframes rotal {
+    form{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+
+
